@@ -1,8 +1,12 @@
 # WSL-football-tracker
 
-graduate assignment project 
+graduate assessment project 
 
-##technologies used 
+#overview 
+
+web application  for tracking women's league matches 
+
+technologies: 
 - java
 - spring boot
 - postgreSQL
