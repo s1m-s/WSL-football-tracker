@@ -43,4 +43,28 @@ public class Match {
         this.matchDate = matchDate;
     }
 
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public String getAwayTeam() {
+        return awayTeam;
+    }
+
+    public int getHomeScore() {
+        return homeScore;
+    }
+
+    public int getAwayScore() {
+        return awayScore;
+    }
+
+    public String getWinner() {
+        return winner;
+    }
+
+    public String getMatchDate() {
+        return matchDate;
+    }
 }
+
