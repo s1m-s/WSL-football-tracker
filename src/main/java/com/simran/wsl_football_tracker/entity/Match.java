@@ -5,17 +5,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
+@Entity 
 
-public class Team {
-    @Id
+public class Match {
+    @Id 
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String homeTeam;
+    private String awayTeam;
+    private int homeScore;
+    private int awayScore;
+    private String winner;
+    private String matchDate;
 
 }
