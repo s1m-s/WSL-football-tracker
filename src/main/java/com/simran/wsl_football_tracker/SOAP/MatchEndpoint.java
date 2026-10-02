@@ -1,5 +1,10 @@
 package com.simran.wsl_football_tracker.SOAP;
 
+import org.springframework.ws.server.endpoint.annotation.Endpoint;
+import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
+import org.springframework.ws.server.endpoint.annotation.RequestPayload;
+import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import com.simran.wsl_football_tracker.repository.MatchRepository;
 
@@ -7,12 +12,17 @@ import com.simran.wsl_football_tracker.entity.Match;
 import com.simran.wsl_football_tracker.SOAP.dto.MatchResponse;
 import com.simran.wsl_football_tracker.SOAP.dto.MatchRequest;
 
+@Endpoint
+
 public class MatchEndpoint {
 
     @Autowired
     private MatchRepository matchRepository;
 
-    public MatchResponse saveMatch(MatchRequest request) {
+    @PayloadRoot(namespace = "http://wslfootballtracker.com", localPart = "MatchRequest")
+    @ResponsePayload
+    public MatchResponse saveMatch(
+        @RequestPayload MatchRequest request) {
         Match match = new Match();
         match.setHomeTeam(request.getHomeTeam());
         match.setAwayTeam(request.getAwayTeam());

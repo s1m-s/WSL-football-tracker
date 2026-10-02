@@ -1,5 +1,12 @@
 package com.simran.wsl_football_tracker.SOAP.dto;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "MatchRequest", namespace = "http://wslfootballtracker.com")
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class MatchRequest {
     
     private String homeTeam;
