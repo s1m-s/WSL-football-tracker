@@ -35,8 +35,17 @@ public class MatchEndpoint {
         match.setHomeScore(request.getHomeScore());
         match.setAwayScore(request.getAwayScore());
 
-        match.setWinner("to be calculated");
-        match.setMatchDate("2026-01-01");
+        String winner;
+        if(request.getHomeScore() > request.getAwayScore()) {
+            winner = request.getHomeTeam();
+        } else if (request.getHomeScore() < request.getAwayScore()) {
+            winner = request.getAwayTeam();
+        } else {
+            winner = "Draw";
+        }
+
+
+        match.setWinner(winner);
 
         matchRepository.save(match);
 

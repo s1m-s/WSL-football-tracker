@@ -15,9 +15,30 @@ public class TeamController {
 
     @GetMapping ("/addteam")
     public String addTeam() {
-        Team team = new Team();
-        team.setName("Arsenal Women");
-        teamRepository.save(team);
-        return "Team added successfully!";
+        String[] teams = {
+            "Arsenal",
+            "Aston Villa",
+            "Birmingham City",
+            "Brighton & Hove Alblon",
+            "Charlton Athletic",
+            "Chelsea",
+            "Crystal Palace",
+            "Everton",
+            "Liverpool",
+            "London City Lionesses",
+            "Manchester City",
+            "Manchester United",
+            "Tottenham Hotspur",
+            "West Ham United"
+        };
+
+        for (String teamName : teams) {
+            Team team = new Team();
+            team.setName(teamName);
+            teamRepository.save(team);
+
+        }
+  
+        return "Team Saved!";
     }
 }

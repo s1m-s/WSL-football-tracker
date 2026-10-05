@@ -16,13 +16,17 @@
         <th>Winner</th>
     </tr>
 
-    <tr>
-        <td>Arsenal Women</td>
-        <td>Chelsea Women</td>
-        <td>2 - 1</td>
-        <td>Arsenal Women</td>
+    <tr th:each="match : ${matches}">
+        <td th:text="${match.homeTeam}"></td>
+        <td th:text="${match.awayTeam}"></td>
+        <td>
+            <span th:text=${match.homeScore}></span>"
+            -
+            <span th:text=${match.awayScore}></span>"
+        </td>
+        <td th:text="${match.winner}"></td>
     </tr>
-    
+
 </table>
 </body>
 </html>
