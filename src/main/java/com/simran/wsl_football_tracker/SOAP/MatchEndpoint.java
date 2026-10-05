@@ -23,7 +23,13 @@ public class MatchEndpoint {
     @ResponsePayload
     public MatchResponse saveMatch(
         @RequestPayload MatchRequest request) {
+        System.out.println("REQUEST CLASS = " + request.getClass());
+        System.out.println("REQUEST = " + request);
         Match match = new Match();
+        System.out.println("HOME TEAM = " + request.getHomeTeam());
+        System.out.println("AWAY TEAM = " + request.getAwayTeam());
+        System.out.println("HOME SCORE = " + request.getHomeScore());
+        System.out.println("AWAY SCORE = " + request.getAwayScore());
         match.setHomeTeam(request.getHomeTeam());
         match.setAwayTeam(request.getAwayTeam());
         match.setHomeScore(request.getHomeScore());
