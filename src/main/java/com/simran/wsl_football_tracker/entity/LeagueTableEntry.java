@@ -22,7 +22,7 @@ public class LeagueTableEntry {
         return played;
     }
 
-    public void setPalyed(int played) {
+    public void setPlayed(int played) {
         this.played = played;
     }
 

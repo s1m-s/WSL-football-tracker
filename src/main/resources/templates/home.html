@@ -13,7 +13,28 @@
 
     <h2>League Table</h2>
 
-    <p>League table coming soon...</p>
+    <table boarder="1">
+        <tr>
+            <th>Position</th>
+            <th>Team</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Drawn</th>
+            <th>Lost</th>
+            <th>Points</th>
+        </tr>
+
+        <tr th:each="entry, position : ${leagueTable}">
+            <td th:text="${position.count}"></td>
+            <td th:text="${entry.teamName}"></td>
+            <td th:text="${entry.played}"></td>
+            <td th:text="${entry.won}"></td>
+            <td th:text="${entry.drawn}"></td>
+            <td th:text="${entry.lost}"></td>
+            <td th:text="${entry.points}"></td>
+        </tr>
+
+    </table>
 
     <hr>
 

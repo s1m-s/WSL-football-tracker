@@ -2,41 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Team Results</title>
+    <meta charset="UTF-8">
+    <title th:text="${team.name} + ' Results'">Team Results</title>
 </head>
 
 <body>
 
-    <p>
-        /<- Back to Home</a>
+        <p>
+            /Back to Home</a>
+        </p>
+
+    <h1 th:text="${team.name}">Team Name</h1>
+
+    <h2>2026 Matches</h2>
+
+    <p th:if="${#lists.isEmpty(matches)}">
+        No matches have been recorded for this team.
     </p>
 
-<h1 th:text="${team.name}"></h1>
+    <table border="1" th:unless="${#lists.isEmpty(matches)}">
+        <thead>
+            <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Score</th>
+                <th>Winner</th>
+            </tr>
+        </thead>
 
-<p th:text="${matches}"></p>
+        <tbody>
+            <tr th:each="match : ${matches}">
+                <td th:text="${match.homeTeam}"></td>
+                <td th:text="${match.awayTeam}"></td>
 
-<table border="1">
-    <tr>
-        <th>Home Team</th>
-        <th>Away Team</th>
-        <th>Score</th>
-        <th>Winner</th>
-    </tr>
+                <td>
+                    <span th:text="${match.homeScore}"></span>
+                    -
+                    <span th:text="${match.awayScore}"></span>
+                </td>
 
-    <tr th:each="match : ${matches}">
-        <td th:text="${match.homeTeam}"></td>
-        <td th:text="${match.awayTeam}"></td>
+                <td th:text="${match.winner}"></td>
+            </tr>
+        </tbody>
 
-        <td>
-            <span th:text="${match.homeScore}"></span>
-            -
-            <span th:text="${match.awayScore}"></span>
-        </td>
-
-        <td th:text="${match.winner}"></td>
-    </tr>
-
-</table>
+    </table>
 
 </body>
 </html>
