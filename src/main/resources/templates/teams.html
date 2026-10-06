@@ -1,0 +1,24 @@
+<!--
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>WSL Teams</title>
+</head>
+
+<body>
+
+<h1>WSL Teams</h1>
+
+<ul>
+    <li th:each="team : ${teams}">
+        <a th:href="@{'/team/' +${team.id}}"
+        th:text="${team.name}">
+        </a>
+    </li>
+</ul>
+
+</body>
+</html>
+
+-->

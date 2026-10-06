@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>WSL Football Tracker</title>
+    <title>Team Results</title>
 </head>
 
 <body>
 
-<h1>Football Tracker</h1>
+    <p>
+        /<- Back to Home</a>
+    </p>
+
+<h1 th:text="${team.name}"></h1>
+
+<p th:text="${matches}"></p>
 
 <table border="1">
     <tr>
@@ -20,14 +26,17 @@
     <tr th:each="match : ${matches}">
         <td th:text="${match.homeTeam}"></td>
         <td th:text="${match.awayTeam}"></td>
+
         <td>
-            <span th:text=${match.homeScore}></span>"
+            <span th:text="${match.homeScore}"></span>
             -
-            <span th:text=${match.awayScore}></span>"
+            <span th:text="${match.awayScore}"></span>
         </td>
+
         <td th:text="${match.winner}"></td>
     </tr>
 
 </table>
+
 </body>
 </html>

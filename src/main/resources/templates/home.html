@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>WSL Football Tracker</title>
+</head>
+
+<body>
+
+    <h1>WSL Football Tracker</h1>
+
+    <hr>
+
+    <h2>League Table</h2>
+
+    <p>League table coming soon...</p>
+
+    <hr>
+
+    <h2>Teams</h2>
+
+    <ul>
+        <li th:each="team : ${teams}">
+            <a th:href="@{'/team/' + ${team.id}}"
+            th:text="${team.name}">
+            </a>
+        </li>
+    </ul>
+
+</body>
+
+</html>
