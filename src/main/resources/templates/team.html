@@ -4,48 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${team.name} + ' Results'">Team Results</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            color: #251846;
+            background: linear-gradient(
+                135deg,
+                #2e0854,
+                #6c2076,
+                #aa8ac7
+            ) ;
+            padding: 30px;
+        }
+
+        .card {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #4b0082;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #4b0082;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            background: #2e0854;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #4b0082;
+            color: #fff;
+            padding: 12px;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f4ebff;
+        }
+
+    </style>
 </head>
 
 <body>
 
-        <p>
-            /Back to Home</a>
-        </p>
+<div class="card">
 
-    <h1 th:text="${team.name}">Team Name</h1>
+    <a href="/" class="back-link">Home</a>
 
-    <h2>2026 Matches</h2>
+    <h1 th:text="${team.name}"></h1>
 
-    <p th:if="${#lists.isEmpty(matches)}">
-        No matches have been recorded for this team.
-    </p>
+    <table>
+    
+        <tr>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Score</th>
+            <th>Winner</th>
+        </tr>
+        
+        <tr th:each="match : ${matches}">
+            <td th:text="${match.homeTeam}"></td>
+            <td th:text="${match.awayTeam}"></td>
 
-    <table border="1" th:unless="${#lists.isEmpty(matches)}">
-        <thead>
-            <tr>
-                <th>Home Team</th>
-                <th>Away Team</th>
-                <th>Score</th>
-                <th>Winner</th>
-            </tr>
-        </thead>
+            <td>
+                <span th:text="${match.homeScore}"></span>
+                -
+                <span th:text="${match.awayScore}"></span>
+            </td>
 
-        <tbody>
-            <tr th:each="match : ${matches}">
-                <td th:text="${match.homeTeam}"></td>
-                <td th:text="${match.awayTeam}"></td>
-
-                <td>
-                    <span th:text="${match.homeScore}"></span>
-                    -
-                    <span th:text="${match.awayScore}"></span>
-                </td>
-
-                <td th:text="${match.winner}"></td>
-            </tr>
-        </tbody>
+            <td th:text="${match.winner}"></td>
+        </tr>
 
     </table>
+
+</div>
 
 </body>
 </html>
